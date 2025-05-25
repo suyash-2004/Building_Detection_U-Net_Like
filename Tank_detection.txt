@@ -1,0 +1,38 @@
+	for tank detection - the height will be around - 150meters.
+for weapons detection - out height will be = 30-50 meters.
+
+the drone will be given a boundary set to keep surveillance on that area and keep looking for tanks and weapons.
+once the drone detects any thing, it will send the coordinates to the ground station and an image of the detection that it has done.
+then from the ground station a person can analyse that image and take a decision to drop a bomb on that tank or to ignore it and keep surveillance
+
+
+Object            Physical Length                          Approx flight Altitude      
+Tank (small)      5 m                                            ~170-190 m                     
+Tank (large)      10 m                                           ~300 m             
+Rifle (short)     1 m                                            ~50 m               
+Rifle (long)      1.5 m                                          ~60-75m
+
+Challenges in models performance :
+camera quality - optical zoom?
+air visibility
+terrain
+
+
+     +----------------------------+
+     |     Surveillance Drone     |
+     |----------------------------|
+     | - GPS Navigation (Boundary)|
+     | - 1080p Camera             |
+     | - Object Detection Model   |
+     | - AI Chip (Jetson/Coral)   |
+     | - Sends Detection Image + GPS  ---> Ground Station
+     +----------------------------+
+                                        |
+     +----------------------------------v-----------------------+
+     |                   Ground Command Station                 |
+     |----------------------------------------------------------|
+     | - Receives image + GPS                                   |
+     | - Human verifies: Tank / Weapon / False Positive         |
+     | - UI for decision-making                                 |
+     | - If valid: send strike command to drone or another unit |
+     +----------------------------------------------------------+
